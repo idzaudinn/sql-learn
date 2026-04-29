@@ -23,30 +23,62 @@ export default function HomePage() {
       </nav>
 
       <section className="hero">
-        <p className="hero-eyebrow">Simple, practical SQL learning</p>
-        <h1 className="hero-title">Start free. Go further when you&apos;re ready.</h1>
-        <p className="hero-sub">
-          SQL-Learn helps beginners and working professionals practice SQL with guided
-          lessons, live sandbox queries, and real datasets. Learn at your own pace with a
-          clean, focused learning experience.
-        </p>
-        <div className="trust-row">
-          <div className="trust-item">
-            <div className="trust-dot" />
-            No credit card to start
+        <div className="hero-left">
+          <p className="hero-eyebrow">Simple, practical SQL learning</p>
+          <h1 className="hero-title">Start free. Go further when you&apos;re ready.</h1>
+          <p className="hero-sub">
+            SQL-Learn helps beginners and working professionals practice SQL with guided
+            lessons, live sandbox queries, and real datasets. Learn at your own pace with a
+            clean, focused learning experience.
+          </p>
+          <div className="trust-row">
+            <div className="trust-item">
+              <div className="trust-dot" />
+              No credit card to start
+            </div>
+            <div className="trust-item">
+              <div className="trust-dot" />
+              One-time payment option
+            </div>
+            <div className="trust-item">
+              <div className="trust-dot" />
+              Free core modules
+            </div>
+            <div className="trust-item">
+              <div className="trust-dot" />
+              Future updates included
+            </div>
           </div>
-          <div className="trust-item">
-            <div className="trust-dot" />
-            One-time payment option
-          </div>
-          <div className="trust-item">
-            <div className="trust-dot" />
-            Free core modules
-          </div>
-          <div className="trust-item">
-            <div className="trust-dot" />
-            Future updates included
-          </div>
+        </div>
+        <div className="hero-sql-wrap" aria-label="SQL example query">
+          <div className="sql-fade sql-fade-top" aria-hidden="true" />
+          <pre className="hero-sql-code">
+            <code>
+              <span className="sql-kw">SELECT DISTINCT</span>
+              {"\n    "}<span className="sql-col">c.customer_id</span>,
+              {"\n    "}<span className="sql-col">c.first_name</span>,
+              {"\n    "}<span className="sql-col">c.last_name</span>,
+              {"\n    "}<span className="sql-col">c.email</span>,
+              {"\n    "}<span className="sql-col">s.store_id</span>
+              {"\n"}<span className="sql-kw">FROM</span>
+              {"\n    "}<span className="sql-tbl">rental</span> <span className="sql-alias">r</span>
+              {"\n    "}<span className="sql-kw">INNER JOIN</span> <span className="sql-tbl">staff</span> <span className="sql-alias">st</span>
+              {"\n        "}<span className="sql-kw">ON</span> <span className="sql-col">st.staff_id</span> <span className="sql-op">=</span> <span className="sql-col">r.staff_id</span>
+              {"\n    "}<span className="sql-kw">INNER JOIN</span> <span className="sql-tbl">store</span> <span className="sql-alias">s</span>
+              {"\n        "}<span className="sql-kw">ON</span> <span className="sql-col">s.manager_staff_id</span> <span className="sql-op">=</span> <span className="sql-col">st.staff_id</span> <span className="sql-kw">AND</span>
+              {"\n            "}<span className="sql-col">s.store_id</span> <span className="sql-op">=</span> <span className="sql-col">st.store_id</span>
+              {"\n    "}<span className="sql-kw">INNER JOIN</span> <span className="sql-tbl">customer</span> <span className="sql-alias">c</span>
+              {"\n        "}<span className="sql-kw">ON</span> <span className="sql-col">r.customer_id</span> <span className="sql-op">=</span> <span className="sql-col">c.customer_id</span> <span className="sql-kw">AND</span>
+              {"\n            "}<span className="sql-col">s.store_id</span> <span className="sql-op">=</span> <span className="sql-col">c.store_id</span>
+              {"\n    "}<span className="sql-kw">INNER JOIN</span> <span className="sql-tbl">address</span> <span className="sql-alias">a</span>
+              {"\n        "}<span className="sql-kw">ON</span> <span className="sql-col">s.address_id</span> <span className="sql-op">=</span> <span className="sql-col">a.address_id</span>
+              {"\n    "}<span className="sql-kw">INNER JOIN</span> <span className="sql-tbl">city</span> <span className="sql-alias">ci</span>
+              {"\n        "}<span className="sql-kw">ON</span> <span className="sql-col">ci.city_id</span> <span className="sql-op">=</span> <span className="sql-col">a.city_id</span>
+              {"\n"}<span className="sql-kw">WHERE</span>
+              {"\n    "}<span className="sql-col">ci.city</span> <span className="sql-op">=</span> <span className="sql-str">'Kuala Lumpur'</span>;
+            </code>
+          </pre>
+          <div className="sql-fade sql-fade-bottom" aria-hidden="true" />
         </div>
       </section>
 
@@ -163,13 +195,65 @@ export default function HomePage() {
           border-color: #639922;
           transform: translateY(-1px);
         }
-        .hero { text-align: center; padding: 52px 32px 36px; border-bottom: 0.5px solid var(--color-border-tertiary); }
+        .hero {
+          display: grid;
+          grid-template-columns: 1fr 480px;
+          align-items: center;
+          gap: 22px;
+          padding: 40px 32px 36px;
+          border-bottom: 0.5px solid var(--color-border-tertiary);
+        }
+        .hero-left { text-align: left; }
         .hero-eyebrow { font-size: 12px; color: #97c459; font-weight: 500; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 12px; }
         .hero-title { font-size: 42px; font-weight: 600; color: var(--color-text-primary); line-height: 1.25; margin-bottom: 12px; }
-        .hero-sub { font-size: 16px; color: var(--color-text-secondary); max-width: 680px; margin: 0 auto 24px; line-height: 1.7; }
-        .trust-row { display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; }
+        .hero-sub { font-size: 16px; color: var(--color-text-secondary); max-width: 680px; margin: 0 0 24px; line-height: 1.7; }
+        .trust-row { display: flex; justify-content: flex-start; gap: 24px; flex-wrap: wrap; }
         .trust-item { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--color-text-secondary); }
         .trust-dot { width: 6px; height: 6px; border-radius: 50%; background: #639922; }
+        .hero-sql-wrap {
+          position: relative;
+          border-radius: 18px;
+          overflow: hidden;
+          min-height: 360px;
+          max-height: 360px;
+        }
+        .hero-sql-code {
+          position: relative;
+          z-index: 1;
+          width: 100%;
+          height: 360px;
+          overflow: hidden;
+          display: block;
+          margin: 0;
+          padding: 20px 18px;
+          font-size: 12.5px;
+          line-height: 1.75;
+          color: #d7dde7;
+          font-family: "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+          white-space: pre;
+        }
+        .sql-kw { color: #7f77dd; font-weight: 700; }
+        .sql-col { color: #d7dde7; }
+        .sql-tbl { color: #5dcaa5; }
+        .sql-alias { color: #8dd0ff; }
+        .sql-op { color: #97c459; }
+        .sql-str { color: #ef9f27; }
+        .sql-fade {
+          position: absolute;
+          left: 0;
+          width: 100%;
+          height: 44px;
+          z-index: 2;
+          pointer-events: none;
+        }
+        .sql-fade-top {
+          top: 0;
+          background: linear-gradient(to bottom, rgba(44,44,44,1), rgba(44,44,44,0));
+        }
+        .sql-fade-bottom {
+          bottom: 0;
+          background: linear-gradient(to top, rgba(44,44,44,1), rgba(44,44,44,0));
+        }
         .cards-section { padding: 40px 32px; }
         .cards-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; max-width: 860px; margin: 0 auto; }
         .plan-card { background: #333; border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 24px; }
@@ -234,6 +318,11 @@ export default function HomePage() {
         @media (max-width: 960px) {
           .nav { padding: 12px 16px; flex-wrap: wrap; gap: 10px; }
           .nav-links { margin-left: 0; width: 100%; }
+          .hero { grid-template-columns: 1fr; }
+          .hero-left { text-align: center; }
+          .hero-sub { margin: 0 auto 24px; }
+          .trust-row { justify-content: center; }
+          .hero-sql-wrap { max-width: 700px; margin: 0 auto; }
           .cards-grid { grid-template-columns: 1fr; }
           .cta-strip { margin: 0 16px 20px; padding: 20px; flex-direction: column; align-items: flex-start; }
           .faq-section, .cards-section, .hero { padding-left: 16px; padding-right: 16px; }

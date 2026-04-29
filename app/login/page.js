@@ -116,7 +116,7 @@ export default function LoginPage() {
       <section className="auth-shell">
         <div className="auth-head">
           <Link className="brand" href="/">
-            SQL<span>-Learn</span>
+            SQL-Learn
           </Link>
           <Link className="back-link" href="/">
             Back to home
@@ -199,19 +199,6 @@ export default function LoginPage() {
         .auth-body-wrap { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 20px; }
         .auth-shell { width: 100%; max-width: 860px; background: #333333; border-radius: var(--border-radius-lg); border: 0.5px solid var(--color-border-tertiary); overflow: hidden; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); }
         .auth-head { display: flex; justify-content: space-between; align-items: center; padding: 16px 20px; border-bottom: 0.5px solid var(--color-border-tertiary); background: var(--color-background-secondary); }
-        .brand { font-size: 15px; font-weight: 600; text-decoration: none; color: var(--color-text-primary); }
-        .brand span { color: #639922; }
-        .back-link {
-          font-size: 13px;
-          color: #f4f6fa;
-          text-decoration: none;
-          border: 1px solid #4f545c;
-          padding: 10px 20px;
-          border-radius: 14px;
-          background: #2f3236;
-          font-weight: 700;
-          letter-spacing: 0.1px;
-        }
         .auth-body { display: grid; grid-template-columns: 1fr 1fr; }
         .col { padding: 20px; }
         .col + .col { border-left: 0.5px solid var(--color-border-tertiary); }

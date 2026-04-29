@@ -69,3 +69,61 @@ a {
   background: #383c42 !important;
   border-color: #639922 !important;
 }
+
+/* Login page header: box buttons (match theme; styled-jsx can be overridden) */
+.auth-head a.brand,
+.auth-head a.back-link {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border: 1px solid #4f545c !important;
+  border-radius: 14px !important;
+  background: #2f3236 !important;
+  color: #f4f6fa !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.1px !important;
+  text-decoration: none !important;
+  padding: 10px 20px !important;
+  min-width: 126px;
+  line-height: 1.2;
+}
+
+.auth-head a.brand {
+  color: #97c459 !important;
+  font-size: 15px !important;
+  font-weight: 800 !important;
+}
+
+.auth-head a.brand:hover,
+.auth-head a.back-link:hover {
+  background: #383c42 !important;
+  border-color: #639922 !important;
+}
+
+/* Dashboard topbar actions */
+.actions a.btn,
+.actions button.btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border: 1px solid #4f545c !important;
+  border-radius: 14px !important;
+  background: #2f3236 !important;
+  color: #ffffff !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.1px !important;
+  text-decoration: none !important;
+  padding: 10px 20px !important;
+  min-width: 100px;
+  cursor: pointer;
+  font-family: inherit;
+  line-height: 1.2;
+}
+
+.actions a.btn:hover,
+.actions button.btn:hover {
+  background: #383c42 !important;
+  border-color: #639922 !important;
+}
