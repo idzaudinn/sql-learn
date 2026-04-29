@@ -5,8 +5,8 @@ import AppShell from "@/components/AppShell";
 export default function DashboardPage() {
   return (
     <AppShell activeNav="dashboard">
-      <main className="main-body flex-1 p-5">
-        <section className="card max-w-[900px] overflow-hidden rounded-[14px] border border-[#4a4a4a] bg-[#333]">
+      <main className="main-body box-border w-full min-w-0 max-w-full flex-1 p-3 sm:p-5">
+        <section className="card mx-auto w-full min-w-0 max-w-[900px] overflow-hidden rounded-[14px] border border-[#4a4a4a] bg-[#333]">
           <div className="head border-b border-[#4a4a4a] p-[18px_20px]">
             <h1 className="title text-xl text-[#f4f6fa]">Welcome to SQL-Learn</h1>
             <p className="desc mt-2 text-[13px] leading-relaxed text-[#c4cad3]">

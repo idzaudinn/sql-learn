@@ -53,7 +53,7 @@ export default function AppShell({ children, activeNav = "dashboard" }) {
   }
 
   return (
-    <div className="flex min-h-screen flex-col bg-[#2c2c2c] md:flex-row">
+    <div className="flex min-h-screen w-full max-w-full flex-col bg-[#2c2c2c] md:flex-row">
       <aside
         className="flex w-full min-w-0 flex-col border-b border-white/[0.08] bg-[#1a1f2e] md:w-[220px] md:min-w-[220px] md:border-b-0 md:border-r"
         aria-label="Main navigation"
@@ -189,12 +189,12 @@ export default function AppShell({ children, activeNav = "dashboard" }) {
         </div>
       </aside>
 
-      <div className="flex min-w-0 flex-1 flex-col">
-        <header className="flex flex-shrink-0 items-center justify-between border-b border-[#4a4a4a] bg-[#2c2c2c] px-5 py-3">
-          <div className="text-[13px] text-[#c4cad3]">
+      <div className="flex min-h-0 min-w-0 flex-1 flex-col overflow-x-hidden">
+        <header className="flex flex-shrink-0 flex-wrap items-center justify-between gap-2 border-b border-[#4a4a4a] bg-[#2c2c2c] px-3 py-3 sm:px-5">
+          <div className="min-w-0 text-[13px] text-[#c4cad3]">
             Logged in as <strong className="text-[#f4f6fa]">{user || "…"}</strong>
           </div>
-          <div className="actions flex gap-2">
+          <div className="actions flex shrink-0 flex-wrap gap-2">
             <Link className="btn" href="/">
               Home
             </Link>
@@ -210,7 +210,7 @@ export default function AppShell({ children, activeNav = "dashboard" }) {
           </div>
         </header>
 
-        {children}
+        <div className="min-h-0 w-full min-w-0 flex-1 overflow-y-auto overflow-x-hidden">{children}</div>
       </div>
     </div>
   );

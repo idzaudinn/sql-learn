@@ -602,16 +602,16 @@ export default function SqlSandboxClient() {
   }
 
   return (
-    <div className="flex min-h-0 flex-1 flex-col gap-4 text-[#c4cad3]">
-      <div className="overflow-hidden rounded-[10px] border border-[#4a4a4a] bg-[#2f2f2f]">
-        <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#4a4a4a] px-3 py-2">
+    <div className="box-border flex w-full min-w-0 max-w-full min-h-0 flex-1 flex-col gap-4 text-[#c4cad3]">
+      <div className="w-full min-w-0 overflow-hidden rounded-[10px] border border-[#4a4a4a] bg-[#2f2f2f]">
+        <div className="flex flex-col gap-2 border-b border-[#4a4a4a] px-3 py-2 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between">
           <div>
             <div className="text-xs font-semibold uppercase tracking-wide text-[#97c459]">Browse data</div>
             <p className="text-[11px] text-white/45">
               Full table snapshot — use it to see every row. Pick a table below. Switch to Raw to copy TSV or JSON.
             </p>
           </div>
-          <div className="flex flex-wrap items-center gap-2">
+          <div className="flex w-full min-w-0 flex-wrap items-center gap-2 sm:w-auto sm:justify-end">
             <label className="sr-only" htmlFor="explore-table-pick">
               Table
             </label>
@@ -659,10 +659,10 @@ export default function SqlSandboxClient() {
             : " — no rows"}
         </div>
         {exploreView === "table" && (
-          <div className="h-64 min-h-[10rem] max-h-[50vh] overflow-auto p-3">
+          <div className="h-64 min-h-[10rem] max-h-[50vh] w-full min-w-0 overflow-x-auto overflow-y-auto p-3">
             {exploreColumns.length > 0 ? (
-              <div className="inline-block min-w-full">
-                <table className="w-full min-w-[320px] border-collapse text-left text-xs">
+              <div className="w-full min-w-0 max-w-full">
+                <table className="w-max min-w-full border-collapse text-left text-xs">
                   <thead>
                     <tr className="border-b border-[#4a4a4a] text-[#97c459]">
                       {exploreColumns.map((c) => (
@@ -706,14 +706,14 @@ export default function SqlSandboxClient() {
           </div>
         )}
         {exploreView === "tsv" && (
-          <div className="h-64 min-h-[10rem] max-h-[50vh] overflow-auto p-3">
+          <div className="h-64 min-h-[10rem] max-h-[50vh] w-full min-w-0 overflow-auto p-3">
             <pre className="whitespace-pre text-xs text-[#d0d0d0]">
               {exploreRawTsv || "(empty)"}
             </pre>
           </div>
         )}
         {exploreView === "json" && (
-          <div className="h-64 min-h-[10rem] max-h-[50vh] overflow-auto p-3">
+          <div className="h-64 min-h-[10rem] max-h-[50vh] w-full min-w-0 overflow-auto p-3">
             <pre className="whitespace-pre-wrap break-all font-mono text-[11px] text-[#d0d0d0]">
               {exploreRawJson}
             </pre>
@@ -721,7 +721,7 @@ export default function SqlSandboxClient() {
         )}
       </div>
 
-      <div className="rounded-[10px] border border-[#4a4a4a] bg-[#2f2f2f] px-3 py-3">
+      <div className="w-full min-w-0 rounded-[10px] border border-[#4a4a4a] bg-[#2f2f2f] px-3 py-3">
         <div className="mb-2 text-xs font-semibold uppercase tracking-wide text-[#97c459]">Sample data</div>
         <p className="mb-3 text-xs leading-relaxed text-white/50">
           Sets how many <span className="text-white/70">users</span> are generated; orders scale (~1.35×). 
@@ -811,21 +811,21 @@ export default function SqlSandboxClient() {
         </div>
       </div>
 
-      <div className="grid min-h-0 grid-cols-1 gap-3 sm:grid-cols-[1fr,200px]">
-        <div className="flex min-h-0 flex-col">
+      <div className="grid min-h-0 w-full min-w-0 grid-cols-1 gap-3 sm:grid-cols-[1fr,200px]">
+        <div className="flex min-h-0 min-w-0 max-w-full flex-col">
           <label className="mb-1.5 block text-xs font-medium uppercase tracking-wide text-white/40" htmlFor="sql-input">
             SQL
           </label>
           <textarea
             id="sql-input"
-            className="min-h-[200px] w-full flex-1 resize-y rounded-lg border border-[#4a4a4a] bg-[#2a2a2a] p-3 font-mono text-[13px] text-[#e8eaed] shadow-inner outline-none ring-[#97c459] focus:border-[#639922] focus:ring-1"
+            className="min-h-[200px] w-full max-w-full min-w-0 flex-1 resize-y rounded-lg border border-[#4a4a4a] bg-[#2a2a2a] p-3 font-mono text-[13px] text-[#e8eaed] shadow-inner outline-none ring-[#97c459] focus:border-[#639922] focus:ring-1"
             value={queryText}
             onChange={(e) => setQueryText(e.target.value)}
             spellCheck={false}
             autoComplete="off"
           />
         </div>
-        <div className="flex min-h-0 flex-col gap-3">
+        <div className="flex min-h-0 min-w-0 max-w-full flex-col gap-3 sm:max-w-[220px] sm:shrink-0">
           <div>
             <div className="mb-1.5 text-xs font-medium uppercase tracking-wide text-white/40">Actions</div>
             <div className="flex flex-col gap-2">
@@ -864,7 +864,7 @@ export default function SqlSandboxClient() {
         </div>
       </div>
 
-      <div className="flex h-72 min-h-[200px] max-h-[50vh] flex-col overflow-hidden rounded-[10px] border border-[#4a4a4a] bg-[#383838]">
+      <div className="flex h-72 min-h-[200px] max-h-[50vh] w-full min-w-0 max-w-full flex-col overflow-hidden rounded-[10px] border border-[#4a4a4a] bg-[#383838]">
         <div className="shrink-0 border-b border-[#4a4a4a] px-3 py-1.5 text-xs font-medium text-[#97c459]">
           Result
         </div>
@@ -884,10 +884,10 @@ export default function SqlSandboxClient() {
             {okMessage}
           </div>
         )}
-        <div className="min-h-0 flex-1 overflow-auto p-3">
+        <div className="min-h-0 w-full min-w-0 flex-1 overflow-x-auto overflow-y-auto p-3">
           {columns.length > 0 ? (
-            <div className="inline-block min-w-full">
-              <table className="w-full min-w-[320px] border-collapse text-left text-xs">
+            <div className="w-full min-w-0 max-w-full">
+              <table className="w-max min-w-full border-collapse text-left text-xs">
                 <thead>
                   <tr className="border-b border-[#4a4a4a] text-[#97c459]">
                     {columns.map((c) => (
@@ -933,7 +933,7 @@ export default function SqlSandboxClient() {
         </div>
       </div>
 
-      <div className="rounded-lg border border-[#4a4a4a] bg-[#2f2f2f] px-3 py-2.5 text-xs text-[#c4cad3]">
+      <div className="w-full min-w-0 max-w-full rounded-lg border border-[#4a4a4a] bg-[#2f2f2f] px-3 py-2.5 text-xs text-[#c4cad3]">
         <div className="mb-1 font-semibold text-[#97c459]">Tables in this database</div>
         {tables.length === 0 ? (
           <p className="text-white/45">No user tables</p>
