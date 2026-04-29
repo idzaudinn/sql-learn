@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
   --color-border-tertiary: #4a4a4a;
   --color-border-secondary: #5a5a5a;
